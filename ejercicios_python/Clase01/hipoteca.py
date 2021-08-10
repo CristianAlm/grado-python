@@ -16,4 +16,11 @@ while saldo > 0:
         total_pagado = total_pagado + pago_mensual
     mes = mes +1
 
-print('Total pagado', round(total_pagado, 2), 'meses: ', mes)
+mensaje = (
+    f'Total pagado es '
+    f'{round(total_pagado, 2)}'
+    f' en '
+    f'{mes}'
+    f' meses'
+)
+print(mensaje)
