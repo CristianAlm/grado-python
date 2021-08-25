@@ -14,7 +14,7 @@ def leer_precios(nombre_archivo):
                 #print(datos)
                 preciosLocales.append(datos)
             except:
-                print('Faltan datos en la línea', row, 'del archivo11111111111111.')
+                print('Faltan datos en la línea', row, 'del archivo.')
         return preciosLocales
 
 def leer_camion(nombre_archivo):
@@ -47,7 +47,7 @@ def calcularBalance(camion, descarga):
                     precio = float(row[2])
                     total += ncajones * precio
                 except ValueError:
-                    print('Faltan datos en la línea', i, 'del archivo222222222222.')
+                    print('Faltan datos en la línea', i, 'del archivo.')
         return total
 
     def obtenerPrecio(camion, descarga):
@@ -63,7 +63,7 @@ def calcularBalance(camion, descarga):
                     nombre = row[0]
                     #print(nombre , i)
                 except:
-                    print('Faltan datos en la línea', i, 'del archivo333333333333333333.')
+                    print('Faltan datos en la línea', i, 'del archivo.')
                 
                 if nombre:
                     f = open(descarga, 'rt')
@@ -74,7 +74,7 @@ def calcularBalance(camion, descarga):
                             nombreFrutaVenta = rowCamion[0]
                             #print(nombreFrutaVenta, line)
                         except ValueError:
-                            print('Faltan datos en la línea', i, 'del archivo4444444444444444444.')
+                            print('Faltan datos en la línea', i, 'del archivo.')
                         
                         if nombre == nombreFrutaVenta:
                             precioCajon = float(row[1])*float(rowCamion[1])
