@@ -2,8 +2,8 @@ frutas = ['banana', 'manzana', 'mandarina']
 
 def agregar(prueba):
     local=[]
-    capadepenapa=''
     for palabra in prueba:
+        capadepenapa=''
         for letra in palabra:
             if letra=="a":
                 capadepenapa=capadepenapa+letra+"pa"
@@ -18,7 +18,7 @@ def agregar(prueba):
             else:
                 capadepenapa=capadepenapa+letra
         local.append(capadepenapa)
-        capadepenapa =''
+        
 
     dictgeringoso = dict(zip(prueba,local))
     return dictgeringoso

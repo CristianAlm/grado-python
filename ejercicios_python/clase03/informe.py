@@ -1,4 +1,5 @@
 import csv
+from collections import Counter
 
 def leer_precios(nombre_archivo):
     with open(nombre_archivo, 'rt') as archivo:
@@ -93,10 +94,24 @@ def calcularBalance(camion, descarga):
     
     return balanceLocal
 
-#info = leer_camion('Clase02/Data/camion.csv')#Lo que re
-#print(info)
-#precios = leer_precios('Clase02/Data/precios.csv')
-#print(precios)
+def mostrarTendencia(nombre_archivo):
+    
+    camion = leer_camion(nombre_archivo)
+    tendenciasLoales = Counter()
+    for s in camion:
+       tendenciasLoales[s['nombre']] += s['cajones']
+    return tendenciasLoales
 
+
+info = leer_camion('Clase02/Data/camion.csv')#Lo que re
+print('-------------------------------------------')
+print(info)
+precios = leer_precios('Clase02/Data/precios.csv')
+print('-------------------------------------------')
+print(precios)
+print('-------------------------------------------')
+tendencia =mostrarTendencia('Clase02/Data/camion.csv')
+print(tendencia)
+print('-------------------------------------------')
 balance = calcularBalance('Clase02/Data/camion.csv', 'Clase02/Data/precios.csv')
 print('El resultado de la operacion es ', balance)

@@ -23,7 +23,7 @@ def costo_camion(nombre_archivo):
 if len(sys.argv) == 2:
     nombre_archivo = sys.argv[1]
 else:
-    nombre_archivo = 'unsamRemoto/ejercicios_python/Clase02/Data/camion.csv'
+    nombre_archivo = 'Clase02/Data/camion.csv'
 
 costo = costo_camion(nombre_archivo)
 print('Costo total:', costo)
