@@ -1,5 +1,8 @@
 import csv
 
+headers = ('Nombre', 'Cajones', 'Precio', 'Cambio')
+espacios = ('-----', '-----', '-----', '-----')
+
 def leer_precios(nombre_archivo):
     with open(nombre_archivo, 'rt') as archivo:
         rows = csv.reader(archivo)
@@ -33,12 +36,17 @@ def leer_camion(nombre_archivo):
         return camion
 
 def hacer_informe(camion, precios):
+
+    lista =[]   
+
     for dic_camion in camion:
         product=dic_camion['nombre']
         for dic_venta in precios:
-            if dic_venta['nombre']==dic_camion['nombre']:
-                lista=(f"{dic_camion['nombre']:>10s} {dic_camion['cajones']:>10d} {dic_camion['precio']:>10.2f} {float(dic_venta['precio'])-float(dic_camion['precio']):>10.2f}")
-                print(lista)
+            if dic_venta['nombre']==product:
+                tupla=(dic_camion['nombre'] ,dic_camion['cajones'], dic_camion['precio'],float(dic_venta['precio'])-float(dic_camion['precio']))
+                lista.append(tupla)
+                #lista.append(f"{dic_camion['nombre']:>10s} {dic_camion['cajones']:>10d} {dic_camion['precio']:>10.2f} {float(dic_venta['precio'])-float(dic_camion['precio']):>10.2f}")
+                #print(lista)
     return lista
         
 
@@ -46,7 +54,11 @@ camion = leer_camion('Clase02/Data/camion.csv')
 precios = leer_precios('Clase02/Data/precios.csv')
 
 informe = hacer_informe(camion, precios)
-dictInforme = dict(zip(camion,precios))
-print(dictInforme)
 
+for header in headers:
+    print(f'{header:>10s}', end = "")
+print('\n')
+print ('---------- ---------- ---------- ----------')
+for r in informe:
+    print('%10s %10d %10.2f %10.2f' % r)
 
